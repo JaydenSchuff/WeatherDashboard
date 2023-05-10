@@ -31,7 +31,7 @@ function pastWeather() {
 		var rowEl = $('<row>');
 		var btnEl = $('<button>').text(`${cityPastWeather[i]}`)
 
-		rowEl.addClass('row histBtnRow');
+		rowEl.addClass('row pastBtnRow');
 		btnEl.addClass('btn btn-outline-secondary histBtn');
 		btnEl.attr('type', 'button');
 
@@ -79,10 +79,10 @@ function getWeatherToday() {
 		mainCard.append(pElWind);
 		//Set the lat and long from the searched city
 		var cityLon = response.coord.lon;
-		// console.log(cityLon);
+	
 		var cityLat = response.coord.lat;
-		// console.log(cityLat);
-
+		
+        //Links to website for Long and Lat
 		var getUrlUvi = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=hourly,daily,minutely&appid=${key}`;
 
 		$.ajax({
@@ -124,7 +124,7 @@ function getFutureWeather() {
 				myWeather.push(testObj);
 			}
 		})
-		
+		//Loops temp, time, feelsLike, date for each card
 		for (let i = 0; i < myWeather.length; i++) {
 
 			var cardEl = $('<div>');
